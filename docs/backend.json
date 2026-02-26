@@ -1,0 +1,114 @@
+{
+  "entities": {
+    "VerificationQuery": {
+      "title": "Verification Query",
+      "description": "Represents a user question and its AI-generated verification analysis results.",
+      "type": "object",
+      "properties": {
+        "question": {
+          "type": "string",
+          "description": "The user's original question."
+        },
+        "answer": {
+          "type": "string",
+          "description": "The AI-generated answer."
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "idle",
+            "generating",
+            "verifying",
+            "complete",
+            "error"
+          ]
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/backend/entities/Claim"
+          }
+        },
+        "metrics": {
+          "$ref": "#/backend/entities/TrustMetrics"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "question",
+        "status",
+        "createdAt"
+      ]
+    },
+    "Claim": {
+      "title": "Claim",
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "classification": {
+          "type": "string",
+          "enum": [
+            "verified",
+            "partially supported",
+            "unsupported"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "reasoning": {
+          "type": "string"
+        }
+      }
+    },
+    "TrustMetrics": {
+      "title": "Trust Metrics",
+      "type": "object",
+      "properties": {
+        "score": {
+          "type": "number"
+        },
+        "verifiedCount": {
+          "type": "number"
+        },
+        "partialCount": {
+          "type": "number"
+        },
+        "unsupportedCount": {
+          "type": "number"
+        },
+        "totalClaims": {
+          "type": "number"
+        },
+        "avgConfidence": {
+          "type": "number"
+        },
+        "riskLevel": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "auth": {
+    "providers": [
+      "google.com"
+    ]
+  },
+  "firestore": {
+    "/queries/{queryId}": {
+      "schema": "VerificationQuery",
+      "description": "Collection of AI verification sessions."
+    }
+  }
+}
