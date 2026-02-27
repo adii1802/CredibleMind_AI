@@ -1,0 +1,61 @@
+{
+  "vector_database": {
+    "documents": [
+      {
+        "id": "doc_001",
+        "title": "Q4 Financial Report",
+        "category": "Finance",
+        "content": "Company financial performance for Q4 2024",
+        "key_metrics": {
+          "year_over_year_growth": "22%",
+          "revenue_increase": "20%",
+          "target_growth": "20%",
+          "status": "exceeded"
+        }
+      },
+      {
+        "id": "doc_002",
+        "title": "Product Specs V3",
+        "category": "Product Roadmap",
+        "content": "Strategic product roadmap and release timeline",
+        "key_milestones": {
+          "new_ai_engine_release": "March 2025",
+          "phase": "early_2025"
+        }
+      },
+      {
+        "id": "doc_003",
+        "title": "Reforestation Project",
+        "category": "Sustainability",
+        "content": "Environmental sustainability initiatives",
+        "key_metrics": {
+          "trees_planted": 1450000,
+          "target_claim": 2000000,
+          "status": "unsupported"
+        }
+      },
+      {
+        "id": "doc_004",
+        "title": "Legal & Privacy Documents",
+        "category": "Compliance",
+        "content": "Regulatory compliance and privacy standards",
+        "compliance": {
+          "eu_ai_act": "compliant",
+          "data_protection": "gdpr_compliant"
+        }
+      },
+      {
+        "id": "doc_005",
+        "title": "Financial Health & ESG Report",
+        "category": "Multi-Domain",
+        "content": "Comprehensive analysis of financial and environmental impact",
+        "domains": ["finance", "sustainability", "governance"]
+      }
+    ],
+    "metadata": {
+      "total_documents": 5,
+      "last_updated": "2026-02-27",
+      "version": "1.0"
+    }
+  }
+}
